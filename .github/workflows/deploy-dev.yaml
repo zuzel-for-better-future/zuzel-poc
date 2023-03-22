@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
 #    environment: dev
     steps:
-      - name: deploy
-        run: ls -la
+      - name: List files in repository
+        run: ls ${{ github.workspace }}
