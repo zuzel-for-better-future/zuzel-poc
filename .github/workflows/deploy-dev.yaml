@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 #    environment: dev
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Create dokcer image
-        run: |
-          cd ${{ github.workspace }}
-          ls
-          env
+        run: echo ${{ github.repository }}
+#        run: docker build -t zuzel:1.0 -f docker/Dockerfile .
+      - name: Log in to ECR
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
