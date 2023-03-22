@@ -1,0 +1,19 @@
+name: Deployment
+
+#concurrency:
+#  group: dev
+#  cancel-in-progress: true
+
+on: [push]
+#on:
+#  push:
+#    branches:
+#      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+#    environment: dev
+    steps:
+      - name: deploy
+        run: ls -la
