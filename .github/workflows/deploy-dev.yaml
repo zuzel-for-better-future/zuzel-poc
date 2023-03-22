@@ -1,7 +1,7 @@
 name: Deployment
 
 env:
-  PROJECT_NAME: $("${{ github.repository }}" | cut -d / -f 2)
+  PROJECT_NAME: ${{ github.repository | cut -d / -f 2 }}
 
 concurrency:
   group: dev
