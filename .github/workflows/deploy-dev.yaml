@@ -19,6 +19,6 @@ jobs:
       - name: Create dokcer image
         run: echo ${{ github.repository }}
 #        run: docker build -t zuzel:1.0 -f docker/Dockerfile .
-      - name: Log in to ECR
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
+#      - name: Log in to ECR
+#        env:
+#          API_KEY: ${{ secrets.API_KEY }}
