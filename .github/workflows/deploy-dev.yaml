@@ -17,7 +17,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: master
       - name: List files in repository
         run: ls ${{ github.workspace }}
