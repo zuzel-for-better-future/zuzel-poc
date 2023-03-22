@@ -1,8 +1,11 @@
 name: Deployment
 
-#concurrency:
-#  group: dev
-#  cancel-in-progress: true
+env:
+  PROJECT_NAME = $("${{ github.repository }}" | cut -d / -f 2)
+
+concurrency:
+  group: dev
+  cancel-in-progress: true
 
 on: [push]
 #on:
@@ -17,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create dokcer image
-        run: echo "${{ github.repository }}" | cut -d / -f 2
+        run: echo $PROJECT_NAME
 #        run: docker build -t zuzel:1.0 -f docker/Dockerfile .
 #      - name: Log in to ECR
 #        env:
