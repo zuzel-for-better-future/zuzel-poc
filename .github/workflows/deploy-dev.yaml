@@ -40,5 +40,5 @@ jobs:
           context: ./docker
           push: true
           tags: |
-            $ECR_URL/$PROJECT_NAME:latest
-            $ECR_URL/$PROJECT_NAME:$VERSION
+            ${{ env.ECR_URL }}/${{ env.PROJECT_NAME }}:latest
+            ${{ env.ECR_URL }}/${{ env.PROJECT_NAME }}:${{ env.VERSION }}
