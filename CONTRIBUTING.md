@@ -12,3 +12,14 @@ For Merge Requests please use described convention:
 
 Commit messages should follow <https://www.conventionalcommits.org/> convention.
 TL;DR: they should contain type and scope
+
+### How to commit to master
+
+1. Checkout to `master`
+2. Update (pull) newest master version from remote repository
+3. Create new branch from `master` (Use naming convention as above)
+4. Commit your changes
+5. Push changes to remote repository
+6. Create pull request
+7. Ask for code review
+8. After getting pull request approval, merge it to master
