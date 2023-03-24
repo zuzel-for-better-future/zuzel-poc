@@ -11,6 +11,7 @@ For Merge Requests please use described convention:
 | chore    | changes to the build process or auxiliary tools                  | chore/update-ci                    | chore: update ci                    |
 
 Commit messages should follow <https://www.conventionalcommits.org/> convention.
+
 TL;DR: they should contain type and scope
 
 ### How to commit to master
