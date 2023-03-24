@@ -1,7 +1,7 @@
 name: Deployment
 
 env:
-  ECR_URL: ${{ vars.ZUZEL_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
+  ECR_URL: ${{ secrets.ZUZEL_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
   PROJECT_NAME: ${{ github.event.repository.name }}
   VERSION: 1.0.0
 
