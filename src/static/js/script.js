@@ -1,5 +1,5 @@
-import { inside, outside, areaIn, areaOut } from "./modules/drawTrack.js";
-import { kulek } from "./modules/drawPlayer.js";
+import { inside, outside, areaIn, areaOut } from "../modules/drawTrack.js";
+import { kulek } from "../modules/drawPlayer.js";
 
 const canvas1 = document.getElementById('canvas1')
 const ctxMain = canvas1.getContext('2d');

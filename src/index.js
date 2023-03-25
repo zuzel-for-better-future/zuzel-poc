@@ -1,14 +1,22 @@
-const http = require('http');
 
+const express = require("express")
 const hostname = '127.0.0.1';
-const port = 3000;
+const app = express()
+const PORT = 3000;
+const path = require("path")
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+
+
+app.get("/", function (req, res) {
+  console.log("ścieżka do katalogu głównego aplikacji: " + __dirname)
+  res.sendFile(path.join(__dirname + "/static/index.html"))
+  //res.sendFile(path.join(__dirname))
+})
+
+app.use(express.static(path.join(__dirname, 'static')))
+
+
+app.listen(PORT, function () {
+  console.log("start serwera na porcie " + PORT)
+})
