@@ -1,11 +1,7 @@
-import { inside, outside, areaIn, areaOut } from "../modules/drawTrack.js";
+import { Board } from "../modules/Board.js";
 import { kulek } from "../modules/drawPlayer.js";
 
-const canvas1 = document.getElementById('canvas1')
-const ctxMain = canvas1.getContext('2d');
-canvas1.width = 500;
-canvas1.height = 750;
-canvas1.style.backgroundColor = '';
+
 
 
 const dialog = document.getElementById('dialog')
@@ -42,12 +38,6 @@ const start = () => {
     visible.style.display = 'flex'
 }
 
-
-window.addEventListener('resize', () => {
-
-    outside()
-    inside()
-});
 
 
 document.body.addEventListener("keydown", (e) => {
@@ -104,19 +94,18 @@ function game() {
         alfa += Math.PI / 130
     }
 
-    if (ctxMain.isPointInPath(areaIn, x, y) == true) {
-        alive = false;
-    }
-    if (ctxMain.isPointInPath(areaOut, x, y) == false) {
-        alive = false;
-    }
+
+    alive = p.checkIfInTrack(x, y)
+
+
     if (alive == false) {
         cancelAnimationFrame(animacja)
     }
+
 }
 
 
 kulek(x, y)
-inside(ctxMain, canvas1)
-outside(ctxMain, canvas1)
+
+var p = new Board()
 
