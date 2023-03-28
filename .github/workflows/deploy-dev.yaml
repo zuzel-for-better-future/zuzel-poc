@@ -12,7 +12,7 @@ concurrency:
 on:
   push:
     branches:
-      - fix/fix-pipeline
+      - master
 
 jobs:
   dokcer-build:
