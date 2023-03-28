@@ -4,8 +4,6 @@ env:
   ECR_URL: ${{ secrets.ZUZEL_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
   PROJECT_NAME: ${{ github.event.repository.name }}
   VERSION: 1.0.0
-  MAIN_BRANCH: fix/fix-pipeline
-
 
 concurrency:
   group: dev
@@ -14,7 +12,7 @@ concurrency:
 on:
   push:
     branches:
-      - ${{ env.MAIN_BRANCH }}
+      - fix/fix-pipeline
 
 jobs:
   dokcer-build:
