@@ -1,21 +1,15 @@
-
 const express = require("express")
-const hostname = '127.0.0.1';
 const app = express()
 const PORT = 3000;
 const path = require("path")
 
-
-
-
 app.get("/", function (req, res) {
   console.log("ścieżka do katalogu głównego aplikacji: " + __dirname)
   res.sendFile(path.join(__dirname + "/static/index.html"))
-  //res.sendFile(path.join(__dirname))
+
 })
 
-app.use(express.static(path.join(__dirname, 'static')))
-
+app.use(express.static('static'))
 
 app.listen(PORT, function () {
   console.log("start serwera na porcie " + PORT)
