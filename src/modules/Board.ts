@@ -1,14 +1,14 @@
 export class Board {
 
-    #radiusInner = 100;
-    #radiusOuter = 250;
-    #canvas;
-    #ctx;
-    #areaIn;
-    #areaOut;
+    #radiusInner: number = 100;
+    #radiusOuter: number = 250;
+    #canvas: HTMLCanvasElement;
+    #ctx: CanvasRenderingContext2D;
+    #areaIn: Path2D;
+    #areaOut: Path2D;
 
     constructor() {
-        this.#canvas = document.getElementById('canvas1');
+        this.#canvas = document.getElementById('canvas1') as HTMLCanvasElement
         this.#canvas.width = 500;
         this.#canvas.height = 750;
         this.#canvas.style.backgroundColor = '';
@@ -19,14 +19,14 @@ export class Board {
     }
 
 
-    inside = () => {
+    inside = (): Path2D => {
         let areaIn = new Path2D()
 
         this.#ctx.strokeStyle = "black"
         this.#ctx.fillStyle = "rgb(00,94,00)"
 
-        areaIn.arc(this.#canvas.width / 2, 250, this.#radiusInner, 1 * Math.PI, 0 * Math.PI);
-        areaIn.arc(this.#canvas.width / 2, 500, this.#radiusInner, 0 * Math.PI, 1 * Math.PI);
+        areaIn.arc(this.#canvas.width / 2, 250, this.#radiusInner, Math.PI, 0 * Math.PI);
+        areaIn.arc(this.#canvas.width / 2, 500, this.#radiusInner, 0, 1 * Math.PI);
         areaIn.lineTo(this.#canvas.width / 2 - this.#radiusInner, 250)
 
         this.#ctx.lineWidth = 1;
@@ -37,7 +37,7 @@ export class Board {
     }
 
 
-    outside = () => {
+    outside = (): Path2D => {
         let areaOut = new Path2D()
 
         areaOut.arc(this.#canvas.width / 2, 250, this.#radiusOuter, 1 * Math.PI, 0 * Math.PI);
@@ -50,7 +50,7 @@ export class Board {
         return areaOut
     }
 
-    checkIfInTrack = (x, y) => {
+    checkIfInTrack = (x: number, y: number): boolean => {
         if (this.#ctx.isPointInPath(this.#areaIn, x, y) == true || this.#ctx.isPointInPath(this.#areaOut, x, y) == false) {
             return false
         }
